@@ -132,7 +132,8 @@ header a.active {
   color: var(--dark-color);
 }
 
-.light .active, .light header a:hover {
+.light .active,
+.light header a:hover {
   color: var(--light-color);
   background-color: var(--dark-color);
 }
