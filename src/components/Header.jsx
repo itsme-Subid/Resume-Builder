@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 function Header({ title, tabs, colors, activeColor }) {
   window.onload = () => {
@@ -9,31 +9,40 @@ function Header({ title, tabs, colors, activeColor }) {
     }
     if (localStorage.getItem("primary") !== null) {
       let primary = localStorage.getItem("primary");
-      document.documentElement.style.setProperty("--color-primary", primary);
+      document.documentElement.style.setProperty("--dark-color", primary);
       let primaryElement = document.querySelector(".primary");
       let body = document.querySelector("body");
       primaryElement.style.backgroundColor = primary;
-      body.style.backgroundColor = primary;
+      if (localStorage.getItem("mode") !== "light") {
+        body.style.backgroundColor = primary;
+      }
     }
   };
   let modeToggler = () => {
     let modeCheckbox = document.querySelector("#mode");
+    let body = document.querySelector("body");
+    let primary = localStorage.getItem("primary");
     if (localStorage.getItem("mode") === "light") {
+      // dark mode
       modeCheckbox.checked = false;
       localStorage.setItem("mode", "dark");
       document.body.classList.remove("light");
+      body.style.backgroundColor = primary;
     } else {
+      //light mode
       modeCheckbox.checked = true;
       localStorage.setItem("mode", "light");
       document.body.classList.add("light");
     }
     if (localStorage.getItem("primary") !== null) {
-      let primary = localStorage.getItem("primary");
-      document.documentElement.style.setProperty("--color-primary", primary);
+      // if primary color is set
+      document.documentElement.style.setProperty("--dark-color", primary);
       let primaryElement = document.querySelector(".primary");
       let body = document.querySelector("body");
       primaryElement.style.backgroundColor = primary;
-      body.style.backgroundColor = primary;
+      if (localStorage.getItem("mode") !== "light") {
+        body.style.backgroundColor = primary;
+      }
     }
   };
   let openColorPalette = () => {
@@ -45,10 +54,10 @@ function Header({ title, tabs, colors, activeColor }) {
     let body = document.querySelector("body");
     primary.style.backgroundColor = colors[key];
     body.style.backgroundColor = colors[key];
-    document.documentElement.style.setProperty("--color-primary", colors[key]);
+    document.documentElement.style.setProperty("--dark-color", colors[key]);
     localStorage.setItem("primary", colors[key]);
   };
-  
+
   return (
     <header>
       <div className="headerWrapper container">
