@@ -1,7 +1,6 @@
 header {
   position: sticky;
   top: 0;
-  padding: 2rem 0;
   z-index: 1;
   user-select: none;
   background-color: var(--dark-color);
@@ -245,9 +244,6 @@ header nav a.active {
 }
 
 @media (max-width: 850px) {
-  .notes {
-    grid-template-columns: repeat(1, 1fr);
-  }
   .generalTab {
     display: none;
   }

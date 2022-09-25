@@ -1,5 +1,7 @@
 import "./App.css";
 import Header from "./components/Header";
+import Home from "./pages/Home";
+import NotFound from "./pages/NotFound";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -18,12 +20,10 @@ function App() {
   ];
   return (
     <Router>
+      <Header title={title} tabs={tabs} colors={colors} />
       <Routes>
-        <Route
-          path="*"
-          element={<Header title={title} tabs={tabs} colors={colors} />}
-        />
-        {/* <Route path="*" element={<NotFound />} /> */}
+        <Route exact path="/" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
   );
