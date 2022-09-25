@@ -1,8 +1,10 @@
 import "./App.css";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
 import Home from "./pages/Home";
-import NotFound from "./pages/NotFound";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Contact from "./pages/Contact";
+import About from "./pages/About";
 
 function App() {
   let title = "resume-builder";
@@ -23,6 +25,8 @@ function App() {
       <Header title={title} tabs={tabs} colors={colors} />
       <Routes>
         <Route exact path="/" element={<Home />} />
+        <Route exact path="/about" element={<About />} />
+        <Route exact path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </Router>
