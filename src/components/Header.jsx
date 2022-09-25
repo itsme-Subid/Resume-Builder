@@ -94,7 +94,7 @@ function Header({ title, tabs, colors }) {
               openHamMenu();
             }}
           ></span>
-          <Link to="/MyNotebook/" style={{ padding: "0" }}>
+          <Link to="/" style={{ padding: "0" }}>
             <h1>{title}</h1>
           </Link>
         </div>
@@ -105,7 +105,7 @@ function Header({ title, tabs, colors }) {
               return (
                 <li key={index} className="generalTab">
                   <Link
-                    to={`/MyNotebook/${tab === "home" ? "" : tab}`}
+                    to={`/${tab === "home" ? "" : tab}`}
                     className={`${tab}`}
                     onClick={activeTab}
                   >
@@ -159,7 +159,7 @@ function Header({ title, tabs, colors }) {
               return (
                 <li key={index}>
                   <Link
-                    to={`/MyNotebook/${tab === "home" ? "" : tab}`}
+                    to={`/${tab === "home" ? "" : tab}`}
                     className={`${tab}`}
                     onClick={activeTab}
                   >
