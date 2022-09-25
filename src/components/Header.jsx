@@ -21,13 +21,10 @@ function Header({ title, tabs, colors }) {
     }
     if (window.location.pathname === "/") {
       document.querySelector(".home").classList.add("active");
-      console.log(window.location.pathname);
     } else if (window.location.pathname === "/about") {
       document.querySelector(".about").classList.add("active");
-      console.log(window.location.pathname);
     } else if (window.location.pathname === "/contact") {
       document.querySelector(".contact").classList.add("active");
-      console.log(window.location.pathname);
     }
   }, []);
 
