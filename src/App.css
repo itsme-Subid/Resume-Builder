@@ -140,3 +140,11 @@ button[type="submit"]:hover {
 .light .form-group textarea::placeholder {
   color: var(--dark-color);
 }
+
+label {
+  display: inline-block;
+}
+
+.label_faded {
+  opacity: 0.5;
+}
