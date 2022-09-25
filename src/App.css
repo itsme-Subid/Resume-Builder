@@ -25,3 +25,8 @@ body {
   margin-inline: auto;
   width: min(90%, 70.5rem);
 }
+
+.light {
+  background-color: var(--light-color) !important;
+  color: var(--dark-color);
+}
