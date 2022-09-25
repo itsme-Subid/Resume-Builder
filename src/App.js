@@ -1,24 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Header from "./components/Header";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 function App() {
+  let title = "resume-builder";
+  let tabs = ["home", "about", "contact"];
+  let colors = [
+    "#403030",
+    "#00010d",
+    "#122031",
+    "#262621",
+    "#1b4140",
+    "#0d2029",
+    "#122640",
+    "#0d1117",
+    "#262626",
+  ];
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Routes>
+        <Route
+          path="*"
+          element={<Header title={title} tabs={tabs} colors={colors} />}
+        />
+        {/* <Route path="*" element={<NotFound />} /> */}
+      </Routes>
+    </Router>
   );
 }
 
