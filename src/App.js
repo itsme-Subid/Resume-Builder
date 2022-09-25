@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import Header from "./components/Header";
 import Home from "./pages/Home";
+import OtherDetails from "./pages/OtherDetails";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
 
@@ -25,6 +26,7 @@ function App() {
       <Header title={title} tabs={tabs} colors={colors} />
       <Routes>
         <Route exact path="/" element={<Home />} />
+        <Route exact path="/otherDetails" element={<OtherDetails />} />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/contact" element={<Contact />} />
         <Route path="*" element={<NotFound />} />
