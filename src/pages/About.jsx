@@ -21,7 +21,7 @@ function About() {
         <p>
           MyNotebook is an open source project. You can find the source code on{" "}
           <a
-            href="https://github.com/itsme-Subid/MyNotebook"
+            href="https://github.com/itsme-Subid/Resume-Builder"
             target={"_blank"}
             rel="noreferrer"
           >
