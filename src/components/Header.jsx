@@ -115,7 +115,7 @@ function Header({ title, tabs, colors }) {
               <div className="colorPaletteSwitch" onClick={openColorPalette}>
                 <div
                   className="primary"
-                  style={{ backgroundColor: `--light-color` }}
+                  style={{ backgroundColor: `--dark-color` }}
                 ></div>
                 <div className="secondary"></div>
               </div>
