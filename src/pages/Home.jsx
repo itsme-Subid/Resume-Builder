@@ -1,6 +1,7 @@
-import PersonalDetails from "./PersonalDetails";
-import Education from "./Education";
 import React, { useState, useEffect } from "react";
+import PersonalDetails from "../components/PersonalDetails";
+import Education from "../components/Education";
+import Skills from "../components/Skills";
 
 function Home() {
   const [data, setData] = useState({});
@@ -15,8 +16,12 @@ function Home() {
         <PersonalDetails data={data} setData={setData} setStep={setStep} />
       ) : step === 2 ? (
         <Education data={data} setData={setData} setStep={setStep} />
+      ) : step === 3 ? (
+        <Skills data={data} setData={setData} setStep={setStep} />
       ) : (
-        <div>Done</div>
+        <div className="">
+          hello world
+        </div>
       )}
     </div>
   );

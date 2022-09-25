@@ -1,0 +1,9 @@
+.skills form .form-group label {
+    display: inline-flex;
+}
+
+.skills form .form-group:nth-child(2) {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
