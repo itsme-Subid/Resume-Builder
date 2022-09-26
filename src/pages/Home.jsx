@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import PersonalDetails from "../components/PersonalDetails";
 import Education from "../components/Education";
 import Skills from "../components/Skills";
+import Achievements from "../components/Achievements";
+import Experience from "../components/Experience";
+import PersonalProjects from "../components/PersonalProjects";
+import Interest from "../components/Interest";
+import Resume from "../components/Resume";
 
 function Home() {
   const [data, setData] = useState({});
@@ -18,10 +23,16 @@ function Home() {
         <Education data={data} setData={setData} setStep={setStep} />
       ) : step === 3 ? (
         <Skills data={data} setData={setData} setStep={setStep} />
+      ) : step === 4 ? (
+        <Achievements data={data} setData={setData} setStep={setStep} />
+      ) : step === 5 ? (
+        <Experience data={data} setData={setData} setStep={setStep} />
+      ) : step === 6 ? (
+        <PersonalProjects data={data} setData={setData} setStep={setStep} />
+      ) : step === 7 ? (
+        <Interest data={data} setData={setData} setStep={setStep} />
       ) : (
-        <div className="">
-          hello world
-        </div>
+        <Resume data={data} setStep={setStep} />
       )}
     </div>
   );

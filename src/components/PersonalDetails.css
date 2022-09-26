@@ -26,3 +26,44 @@
   height: 10rem;
   resize: vertical;
 }
+
+.photo-upload {
+  position: relative;
+  width: 15rem;
+  height: 15rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid var(--light-color);
+  background-color: var(--dark-color);
+  margin: 2rem auto;
+}
+
+.preview-photo {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(../assets/user.png);
+  background-position: center;
+  background-size: cover;
+}
+
+.photo-text {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  place-content: center;
+  justify-content: center;
+  align-items: center;
+  margin-inline: auto;
+  opacity: .75;
+  transition: all 0.15s ease;
+}
+
+.photo-upload:hover .photo-text {
+  opacity: .8;
+  backdrop-filter: blur(1px) brightness(0.5);
+}

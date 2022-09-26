@@ -17,31 +17,9 @@ function PersonalDetails({ data, setData, setStep }) {
     <>
       <h3 style={{ textAlign: "center" }}>Personal Details</h3>
       <form id="personalDetails" onSubmit={personalDetailSubmit}>
-        <div
-          className="form-group"
-          style={{
-            position: "relative",
-            width: "15rem",
-            height: "15rem",
-            borderRadius: "50%",
-            overflow: "hidden",
-            background: "--dark-color",
-            border: "1px solid var(--light-color)",
-            margin: "2rem auto",
-          }}
-        >
-          <div
-            style={{
-              width: "100%",
-              height: "100%",
-              display: "flex",
-              flexDirection: "column",
-              placeContent: "center",
-              justifyContent: "center",
-              alignItems: "center",
-              marginInline: "auto",
-            }}
-          >
+        <div className="form-group photo-upload">
+          <div className="preview-photo"></div>
+          <div className="photo-text">
             <span data-icon="camera">
               <svg viewBox="0 0 24 24" width="24" height="24">
                 <path
@@ -54,7 +32,17 @@ function PersonalDetails({ data, setData, setStep }) {
           </div>
           <input
             type="file"
-            accept="image/gif,image/jpeg,image/jpg,image/png"
+            name="userImage"
+            accept="image/jpeg,image/jpg,image/png"
+            onChange={(e) => {
+              let file = e.target.files[0];
+              let reader = new FileReader();
+              reader.readAsDataURL(file);
+              reader.onload = () => {
+                document.querySelector(".preview-photo").style.backgroundImage =
+                  "url(" + reader.result + ")";
+              };
+            }}
             style={{
               opacity: "0",
               position: "absolute",
