@@ -7,7 +7,6 @@ function Resume({ data, setStep }) {
   reader.onload = () => {
     document.querySelector(".user-image").src = reader.result;
   };
-  console.log(data.FName);
   return (
     <div className="resume">
       <h3>Resume</h3>
