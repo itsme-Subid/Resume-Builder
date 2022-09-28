@@ -72,7 +72,7 @@
   font-size: 0.5em;
   font-weight: 300;
   top: -10px;
-  text-transform: capitalize;
+  text-transform: uppercase;
 }
 
 .resume-container .contentBox {
@@ -152,6 +152,7 @@
   height: 6px;
   margin-top: 10px;
   display: block;
+  border-radius: 5px;
   overflow: hidden;
 }
 

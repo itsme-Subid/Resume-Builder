@@ -21,8 +21,7 @@ function Resume({ data, setStep }) {
             </div>
             <div className="profileText">
               <h3>
-                {data.FName}
-                <br />
+                {data.FName} {/* <br /> */}
                 {data.LName}
                 <br />
                 <span>{data.applyFor}</span>
@@ -37,7 +36,7 @@ function Resume({ data, setStep }) {
                   <span className="icon">
                     <ion-icon name="call-outline"></ion-icon>
                   </span>
-                  <span className="text">+91 890 217 5210</span>
+                  <span className="text">+91 890 217 5XXX</span>
                 </li>
                 <li>
                   <span className="icon">
@@ -130,7 +129,8 @@ function Resume({ data, setStep }) {
                 <h3>Profile</h3>
                 <p>
                   I'm a passionate HS student in development and design,
-                  specializing in JavaScript, MySQL, C/C++, and Java.
+                  specializing in React JS, Advanced JavaScript, MySQL, C/C++,
+                  and Java.
                 </p>
               </div>
               <div className="about">
