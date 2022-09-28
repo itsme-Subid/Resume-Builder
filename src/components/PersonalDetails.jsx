@@ -11,7 +11,7 @@ function PersonalDetails({ data, setData, setStep }) {
       JSONform[key] = form.get(key);
     }
     setData({ ...data, ...JSONform });
-    setStep(2);
+    setStep(8);
   };
   return (
     <>
