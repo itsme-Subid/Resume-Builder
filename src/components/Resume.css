@@ -5,14 +5,19 @@
   min-height: 100vh;
   border-radius: 5px;
   color: black;
+  background: #fff;
+}
+
+@page {
+  margin-top: 1cm;
+  margin-bottom: 2.25cm;
 }
 
 .resume-container {
   position: relative;
   width: 100%;
-  max-width: 1000px;
+  margin-block: 2rem;
   background: #fff;
-  margin: 50px 0;
   box-shadow: 0 50px 75px rgba(255, 255, 255, 0.1);
   border-left: 50px solid #fff;
   border-right: 50px solid #fff;
@@ -119,17 +124,17 @@
   margin: 25px 0;
 }
 
-.resume h5 {
+.resume-container h5 {
   color: var(--color-primary);
 }
 
-.resume h4 {
+.resume-container h4 {
   color: #333;
   font-weight: 500;
   margin: 5px 0;
 }
 
-.resume h6 {
+.resume-container h6 {
   color: #666;
   font-weight: 300;
   font-size: 1em;
@@ -200,6 +205,7 @@
 
 .resume-container .rightSide .about p {
   font-style: 300;
+  color: inherit;
 }
 
 .resume-container .rightSide .about .box {
@@ -251,10 +257,24 @@
   overflow: hidden;
 }
 
-.resume-container .rightSide .skills .box .percent div{
+.resume-container .rightSide .skills .box .percent div {
   position: relative;
   top: 0;
   left: 0;
   height: 100%;
   background: var(--color-primary);
+}
+
+.resume-container a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.resume-container .leftSide span {
+  display: flex;
+  align-items: center;
+}
+
+.resume .buttons {
+  margin-block: 2rem;
 }

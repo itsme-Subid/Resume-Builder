@@ -1,5 +1,6 @@
 import "./Resume.css";
-import React from "react";
+import React, { useRef } from "react";
+import ReactToPrint from "react-to-print";
 
 function Resume({ data, setStep }) {
   let reader = new FileReader();
@@ -7,22 +8,21 @@ function Resume({ data, setStep }) {
   reader.onload = () => {
     document.querySelector(".user-image").src = reader.result;
   };
+  const componentRef = useRef();
   return (
     <div className="resume">
       <h3>Resume</h3>
-      {/* Resume CV*/}
-      <div className="resume-wrapper">
+      <div className="resume-wrapper page-break" ref={componentRef}>
         <div className="resume-container">
           <div className="top">
             <div className="imgBox">
               <div className="box">
-                <img alt="" className="user-image" />
+                <img alt="" className="user-image" draggable="false" />
               </div>
             </div>
             <div className="profileText">
               <h3>
-                {data.FName} {/* <br /> */}
-                {data.LName}
+                {data.FName} {data.LName}
                 <br />
                 <span>{data.applyFor}</span>
               </h3>
@@ -36,25 +36,46 @@ function Resume({ data, setStep }) {
                   <span className="icon">
                     <ion-icon name="call-outline"></ion-icon>
                   </span>
-                  <span className="text">+91 890 217 5XXX</span>
+                  <span className="text">
+                    {data.country_code} {data.phone}
+                  </span>
                 </li>
                 <li>
                   <span className="icon">
                     <ion-icon name="mail-outline"></ion-icon>
                   </span>
-                  <span className="text">itsmesubid@gmail.com</span>
+                  <span className="text">
+                    <a
+                      href={`mailto:${data.email}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {data.email}
+                    </a>
+                  </span>
                 </li>
                 <li>
                   <span className="icon">
                     <ion-icon name="earth-outline"></ion-icon>
                   </span>
-                  <span className="text">itsme-subid.github.io/blog-2022</span>
+                  <span className="text">
+                    <a
+                      style={{ lineHeight: "1.5" }}
+                      href={`https://${data.website}`}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      {data.website}
+                    </a>
+                  </span>
                 </li>
                 <li>
                   <span className="icon">
                     <ion-icon name="location-outline"></ion-icon>
                   </span>
-                  <span className="text">Kolkata, India</span>
+                  <span className="text" style={{ textTransform: "uppercase" }}>
+                    {data.city}, {data.country}
+                  </span>
                 </li>
               </ul>
               <h3>Education</h3>
@@ -78,7 +99,7 @@ function Resume({ data, setStep }) {
               <h3>Language</h3>
               <ul className="language">
                 <li>
-                  <span className="text">English</span>
+                  <span className="text">{data.languages}</span>
                   <span className="percent">
                     <div style={{ width: "90%" }}></div>
                   </span>
@@ -127,11 +148,7 @@ function Resume({ data, setStep }) {
             <div className="rightSide">
               <div className="about">
                 <h3>Profile</h3>
-                <p>
-                  I'm a passionate HS student in development and design,
-                  specializing in React JS, Advanced JavaScript, MySQL, C/C++,
-                  and Java.
-                </p>
+                <p>{data.aboutSelf}</p>
               </div>
               <div className="about">
                 <h3>Experience</h3>
@@ -218,14 +235,21 @@ function Resume({ data, setStep }) {
           </div>
         </div>
       </div>
-      <button
-        type="button"
-        onClick={() => {
-          setStep(7);
-        }}
-      >
-        Previous
-      </button>
+      <div className="buttons">
+        <button
+          type="button"
+          onClick={() => {
+            setStep(7);
+          }}
+        >
+          Previous
+        </button>
+        <ReactToPrint
+          trigger={() => <button type="button">Print this out!</button>}
+          content={() => componentRef.current}
+          documentTitle="Resume - itsme-Subid"
+        />
+      </div>
     </div>
   );
 }

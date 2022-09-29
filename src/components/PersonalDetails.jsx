@@ -149,8 +149,8 @@ function PersonalDetails({ data, setData, setStep }) {
           <input
             type="text"
             placeholder="Enter your Country..."
-            name="Country"
-            id="Country"
+            name="country"
+            id="country"
             title="Please enter a valid Country"
           />
         </div>
