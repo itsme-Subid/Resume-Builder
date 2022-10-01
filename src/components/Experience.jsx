@@ -1,6 +1,6 @@
 import React from "react";
 
-function Experience({ data, setData, setStep }) {
+function Experience({ data, step, setData, setStep }) {
   let ExperienceSubmit = (event) => {
     event.preventDefault();
     let form = new FormData(event.target);
@@ -9,7 +9,7 @@ function Experience({ data, setData, setStep }) {
       JSONform[key] = form.get(key);
     }
     setData({ ...data, ...JSONform });
-    setStep(6);
+    setStep(step + 1);
   };
   return (
     <div className="Experience">
@@ -88,7 +88,7 @@ function Experience({ data, setData, setStep }) {
           <button
             type="button"
             onClick={() => {
-              setStep(4);
+              setStep(step - 1);
             }}
           >
             Previous

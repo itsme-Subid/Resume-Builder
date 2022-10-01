@@ -1,13 +1,19 @@
 import "./Resume.css";
-import React, { useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import ReactToPrint from "react-to-print";
 
-function Resume({ data, setStep }) {
+function Resume({ data, step, setStep }) {
   let reader = new FileReader();
   reader.readAsDataURL(data.userImage);
   reader.onload = () => {
     document.querySelector(".user-image").src = reader.result;
   };
+  let languages = data.languages.split(",");
+  let interests = data.interests.split(",");
+  let skills = data.skills.split(",");
+  useEffect(() => {
+    console.log(interests, languages);
+  }, []);
   const componentRef = useRef();
   return (
     <div className="resume">
@@ -98,51 +104,29 @@ function Resume({ data, setStep }) {
               </ul>
               <h3>Language</h3>
               <ul className="language">
-                <li>
-                  <span className="text">{data.languages}</span>
-                  <span className="percent">
-                    <div style={{ width: "90%" }}></div>
-                  </span>
-                </li>
-                <li>
-                  <span className="text">Hindi</span>
-                  <span className="percent">
-                    <div style={{ width: "70%" }}></div>
-                  </span>
-                </li>
-                <li>
-                  <span className="text">Bengali</span>
-                  <span className="percent">
-                    <div style={{ width: "75%" }}></div>
-                  </span>
-                </li>
+                {languages.map((language, index) => {
+                  return (
+                    <li key={index}>
+                      <span className="text">{language}</span>
+                      <span className="percent">
+                        <div style={{ width: "90%" }}></div>
+                      </span>
+                    </li>
+                  );
+                })}
               </ul>
               <h3>Interest</h3>
               <ul className="interest">
-                <li>
-                  <span className="icon">
-                    <ion-icon name="heart"></ion-icon>
-                  </span>
-                  Firebase
-                </li>
-                <li>
-                  <span className="icon">
-                    <ion-icon name="heart"></ion-icon>
-                  </span>
-                  Node.js
-                </li>
-                <li>
-                  <span className="icon">
-                    <ion-icon name="heart"></ion-icon>
-                  </span>
-                  Next.js
-                </li>
-                <li>
-                  <span className="icon">
-                    <ion-icon name="heart"></ion-icon>
-                  </span>
-                  Photography
-                </li>
+                {interests.map((interest, index) => {
+                  return (
+                    <li key={index}>
+                      <span className="icon">
+                        <ion-icon name="heart"></ion-icon>
+                      </span>
+                      {interest}
+                    </li>
+                  );
+                })}
               </ul>
             </div>
             <div className="rightSide">
@@ -194,42 +178,16 @@ function Resume({ data, setStep }) {
               </div>
               <div className="about skills">
                 <h3>Professional Skillls</h3>
-                <div className="box">
-                  <h4>HTML</h4>
-                  <span className="percent">
-                    <div className="" style={{ width: "95%" }}></div>
-                  </span>
-                </div>
-                <div className="box">
-                  <h4>CSS</h4>
-                  <span className="percent">
-                    <div className="" style={{ width: "75%" }}></div>
-                  </span>
-                </div>
-                <div className="box">
-                  <h4>Javascript</h4>
-                  <span className="percent">
-                    <div className="" style={{ width: "80%" }}></div>
-                  </span>
-                </div>
-                <div className="box">
-                  <h4>Photoshop</h4>
-                  <span className="percent">
-                    <div className="" style={{ width: "90%" }}></div>
-                  </span>
-                </div>
-                <div className="box">
-                  <h4>Illustrator</h4>
-                  <span className="percent">
-                    <div className="" style={{ width: "70%" }}></div>
-                  </span>
-                </div>
-                <div className="box">
-                  <h4>Figma</h4>
-                  <span className="percent">
-                    <div className="" style={{ width: "65%" }}></div>
-                  </span>
-                </div>
+                {skills.map((skill, index) => {
+                  return (
+                    <div className="box" key={index}>
+                      <h4>{skill}</h4>
+                      <span className="percent">
+                        <div style={{ width: "90%" }}></div>
+                      </span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -239,7 +197,7 @@ function Resume({ data, setStep }) {
         <button
           type="button"
           onClick={() => {
-            setStep(7);
+            setStep(step - 1);
           }}
         >
           Previous

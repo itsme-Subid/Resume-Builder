@@ -1,6 +1,6 @@
 import React from "react";
 
-function Achievements({ data, setData, setStep }) {
+function Achievements({ data, step, setData, setStep }) {
   let achievementSubmit = (event) => {
     event.preventDefault();
     let form = new FormData(event.target);
@@ -9,7 +9,7 @@ function Achievements({ data, setData, setStep }) {
       JSONform[key] = form.get(key);
     }
     setData({ ...data, ...JSONform });
-    setStep(5);
+    setStep(step + 1);
   };
   return (
     <div className="achievements">
@@ -29,7 +29,7 @@ function Achievements({ data, setData, setStep }) {
           <button
             type="button"
             onClick={() => {
-              setStep(3);
+              setStep(step - 1);
             }}
           >
             Previous

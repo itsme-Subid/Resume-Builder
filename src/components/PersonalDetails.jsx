@@ -1,7 +1,7 @@
 import "./PersonalDetails.css";
 import React, { useState } from "react";
 
-function PersonalDetails({ data, setData, setStep }) {
+function PersonalDetails({ data, step, setData, setStep }) {
   const [inputVal, setInputVal] = useState("+91");
   let personalDetailSubmit = (event) => {
     event.preventDefault();
@@ -11,7 +11,7 @@ function PersonalDetails({ data, setData, setStep }) {
       JSONform[key] = form.get(key);
     }
     setData({ ...data, ...JSONform });
-    setStep(8);
+    setStep(3);
   };
   return (
     <>

@@ -10,10 +10,8 @@ import Interest from "../components/Interest";
 import Resume from "../components/Resume";
 
 function Home() {
-  const [data, setData] = useState({
-    
-  });
-  const [step, setStep] = useState(1);
+  const [data, setData] = useState({});
+  const [step, setStep] = useState(2);
   // useEffect(() => {
   //   if (
   //     localStorage.getItem("data") !== null &&
@@ -36,24 +34,64 @@ function Home() {
     switch (step) {
       case 1:
         return (
-          <PersonalDetails data={data} setData={setData} setStep={setStep} />
+          <PersonalDetails
+            data={data}
+            step={step}
+            setData={setData}
+            setStep={setStep}
+          />
         );
       case 2:
-        return <Education data={data} setData={setData} setStep={setStep} />;
+        return (
+          <Education
+            data={data}
+            step={step}
+            setData={setData}
+            setStep={setStep}
+          />
+        );
       case 3:
-        return <Skills data={data} setData={setData} setStep={setStep} />;
+        return (
+          <Skills data={data} step={step} setData={setData} setStep={setStep} />
+        );
       case 4:
-        return <Achievements data={data} setData={setData} setStep={setStep} />;
+        return (
+          <Achievements
+            data={data}
+            step={step}
+            setData={setData}
+            setStep={setStep}
+          />
+        );
       case 5:
-        return <Experience data={data} setData={setData} setStep={setStep} />;
+        return (
+          <Experience
+            data={data}
+            step={step}
+            setData={setData}
+            setStep={setStep}
+          />
+        );
       case 6:
         return (
-          <PersonalProjects data={data} setData={setData} setStep={setStep} />
+          <PersonalProjects
+            data={data}
+            step={step}
+            setData={setData}
+            setStep={setStep}
+          />
         );
       case 7:
-        return <Interest data={data} setData={setData} setStep={setStep} />;
+        return (
+          <Interest
+            data={data}
+            step={step}
+            setData={setData}
+            setStep={setStep}
+          />
+        );
       case 8:
-        return <Resume data={data} setStep={setStep} />;
+        return <Resume data={data} step={step} setStep={setStep} />;
       default:
         return <NotFound />;
     }

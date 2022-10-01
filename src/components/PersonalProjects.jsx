@@ -1,6 +1,6 @@
 import React from "react";
 
-function PersonalProjects({ data, setData, setStep }) {
+function PersonalProjects({ data, step, setData, setStep }) {
   let personalProjectSubmit = (event) => {
     event.preventDefault();
     let form = new FormData(event.target);
@@ -9,7 +9,7 @@ function PersonalProjects({ data, setData, setStep }) {
       JSONform[key] = form.get(key);
     }
     setData({ ...data, ...JSONform });
-    setStep(7);
+    setStep(step + 1);
   };
   return (
     <div className="personalProjects">
@@ -81,7 +81,7 @@ function PersonalProjects({ data, setData, setStep }) {
           <button
             type="button"
             onClick={() => {
-              setStep(5);
+              setStep(step - 1);
             }}
           >
             Previous

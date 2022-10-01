@@ -1,7 +1,7 @@
 import "./Skills.css";
 import React from "react";
 
-function Skills({ data, setData, setStep }) {
+function Skills({ data, step, setData, setStep }) {
   let skillSubmit = (event) => {
     event.preventDefault();
     let form = new FormData(event.target);
@@ -10,7 +10,7 @@ function Skills({ data, setData, setStep }) {
       JSONform[key] = form.get(key);
     }
     setData({ ...data, ...JSONform });
-    setStep(4);
+    setStep(7);
   };
   return (
     <div className="skills">
@@ -38,7 +38,7 @@ function Skills({ data, setData, setStep }) {
           <button
             type="button"
             onClick={() => {
-              setStep(2);
+              setStep(step - 1);
             }}
           >
             Previous
