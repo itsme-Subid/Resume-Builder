@@ -52,6 +52,7 @@ function PersonalDetails({ data, step, setData, setStep }) {
               zIndex: "1",
               cursor: "pointer",
             }}
+            required
           />
         </div>
         <div className="form-group">
@@ -63,6 +64,7 @@ function PersonalDetails({ data, step, setData, setStep }) {
             id="FName"
             pattern="[A-Za-z ]{3,}"
             title="Please enter at least 3 characters"
+            required
           />
         </div>
         <div className="form-group">
@@ -74,6 +76,7 @@ function PersonalDetails({ data, step, setData, setStep }) {
             id="LName"
             pattern="[A-Za-z ]{3,}"
             title="Please enter at least 3 characters"
+            required
           />
         </div>
         <div className="form-group">
@@ -83,6 +86,7 @@ function PersonalDetails({ data, step, setData, setStep }) {
             placeholder="Enter the position you are applying for..."
             name="applyFor"
             id="applyFor"
+            required
           />
         </div>
         <div className="form-group">
@@ -103,6 +107,7 @@ function PersonalDetails({ data, step, setData, setStep }) {
             id="email"
             pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
             title="Please enter a valid email address"
+            required
           />
         </div>
         <div className="form-group">
@@ -119,6 +124,7 @@ function PersonalDetails({ data, step, setData, setStep }) {
               onChange={(e) => {
                 setInputVal(e.target.value);
               }}
+              required
             />
             <input
               type="tel"
@@ -127,6 +133,7 @@ function PersonalDetails({ data, step, setData, setStep }) {
               id="phone"
               pattern="[0-9]{10}"
               title="Please enter a valid phone number"
+              required
             />
           </div>
         </div>
@@ -139,6 +146,7 @@ function PersonalDetails({ data, step, setData, setStep }) {
             name="city"
             id="city"
             title="Please enter a valid city"
+            required
           />
         </div>
         <div className="form-group">
@@ -152,6 +160,7 @@ function PersonalDetails({ data, step, setData, setStep }) {
             name="country"
             id="country"
             title="Please enter a valid Country"
+            required
           />
         </div>
         <div className="form-group">
@@ -195,6 +204,7 @@ function PersonalDetails({ data, step, setData, setStep }) {
             name="languages"
             id="languages"
             title="Please enter your languages"
+            required
           />
         </div>
         <button type="submit">Next</button>

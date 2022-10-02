@@ -23,6 +23,7 @@ function Skills({ data, step, setData, setStep }) {
             name="skills"
             id="skills"
             title="Please enter at least 3 characters"
+            required
           />
         </div>
         <div className="buttons">
