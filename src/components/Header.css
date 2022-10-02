@@ -126,8 +126,8 @@ header nav a.active {
   color: var(--dark-color);
 }
 
-.light .active,
-.light header a:hover {
+.light header nav a.active,
+.light header nav a:hover {
   color: var(--light-color);
   background-color: var(--dark-color);
 }

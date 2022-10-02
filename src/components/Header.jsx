@@ -91,7 +91,12 @@ function Header({ title, tabs, colors }) {
               openHamMenu();
             }}
           ></span>
-          <Link to="/" style={{ padding: "0" }}>
+          <Link
+            to="/"
+            style={{
+              padding: "0",
+            }}
+          >
             <h1>{title}</h1>
           </Link>
         </div>
