@@ -7,7 +7,7 @@ import Contact from "./pages/Contact";
 import About from "./pages/About";
 
 function App() {
-  let title = "resume-builder";
+  let title = "ResumeGenius";
   let tabs = ["home", "about", "contact"];
   let colors = [
     "#403030",
