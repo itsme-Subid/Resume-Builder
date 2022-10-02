@@ -6,20 +6,22 @@ function About() {
     <div className="about container">
       <h2>About</h2>
       <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem molestiae
-        voluptatem beatae harum ipsum nihil iusto totam omnis accusantium,
-        temporibus libero esse, repudiandae fugiat cupiditate porro aperiam
-        inventore debitis nobis consequatur tenetur? Ipsam dolorem, provident
-        aperiam reiciendis necessitatibus quibusdam animi id deleniti ratione.
-        Facilis nisi iure veniam unde, et est.
+        ResumeGenius is a simple, straightforward web app that makes it easy to
+        make your very own resume in few minutes. There are no bells and
+        whistles, just a simple interface that lets you add your details and
+        generators your resume in fraction of seconds. You can also use our
+        advanced filter to set the color of the web app to suit your mood.
+        ResumeGenius is available for free on the web. ResumeGenius doesn't have
+        any paid version that will gives you access to additional features, nor
+        does it have any in-app purchases.
       </p>
-
       <div className="open-source">
         <h3>
           <div className="svg"></div>Open Source:
         </h3>
         <p>
-          MyNotebook is an open source project. You can find the source code on{" "}
+          ResumeGenius is an open source project. You can find the source code
+          on{" "}
           <a
             href="https://github.com/itsme-Subid/Resume-Builder"
             target={"_blank"}
@@ -28,7 +30,7 @@ function About() {
             GitHub.
           </a>
           <br />
-          I'm currently using <strong>react.js</strong> to build MyNotebook.
+          I'm currently using <strong>react.js</strong> to build ResumeGenius.
         </p>
       </div>
       <div className="credits">
@@ -36,7 +38,7 @@ function About() {
           <div className="svg"></div>Credits:
         </h3>
         <p>
-          MyNotebook is built by{" "}
+          ResumeGenius is built by{" "}
           <a
             href="https://github.com/itsme-Subid"
             target={"_blank"}
@@ -45,7 +47,7 @@ function About() {
             Subid
           </a>
           .<br />
-          The icons used in MyNotebook are from{" "}
+          The icons used in ResumeGenius are from{" "}
           <a
             href="https://ionic.io/ionicons"
             target={"_blank"}
@@ -54,7 +56,7 @@ function About() {
             Ionicons
           </a>
           .<br />
-          The font used in MyNotebook is from{" "}
+          The font used in ResumeGenius is from{" "}
           <a
             href="https://fonts.google.com/"
             target={"_blank"}
