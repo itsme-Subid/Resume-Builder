@@ -1,4 +1,3 @@
-import "./Skills.css";
 import React from "react";
 
 function Skills({ data, step, setData, setStep }) {
