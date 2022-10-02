@@ -1,5 +1,5 @@
 import "./Resume.css";
-import React, { useEffect, useRef } from "react";
+import React, { useRef } from "react";
 import ReactToPrint from "react-to-print";
 
 function Resume({ data, step, setStep }) {
@@ -11,14 +11,11 @@ function Resume({ data, step, setStep }) {
   let languages = data.languages.split(",");
   let interests = data.interests.split(",");
   let skills = data.skills.split(",");
-  useEffect(() => {
-    console.log(interests, languages);
-  }, []);
   const componentRef = useRef();
   return (
     <div className="resume">
       <h3>Resume</h3>
-      <div className="resume-wrapper page-break" ref={componentRef}>
+      <div className="resume-wrapper" ref={componentRef}>
         <div className="resume-container">
           <div className="top">
             <div className="imgBox">
@@ -28,9 +25,9 @@ function Resume({ data, step, setStep }) {
             </div>
             <div className="profileText">
               <h3>
-                {data.FName} {data.LName}
+                {data.FName.trim()} {data.LName.trim()}
                 <br />
-                <span>{data.applyFor}</span>
+                <span>{data.applyFor.trim()}</span>
               </h3>
             </div>
           </div>
@@ -80,36 +77,34 @@ function Resume({ data, step, setStep }) {
                     <ion-icon name="location-outline"></ion-icon>
                   </span>
                   <span className="text" style={{ textTransform: "uppercase" }}>
-                    {data.city}, {data.country}
+                    {data.city.trim()}, {data.country.trim()}
                   </span>
                 </li>
               </ul>
               <h3>Education</h3>
               <ul className="education">
-                <li>
-                  <h5>2018 - 2022</h5>
-                  <h4>B.Tech in Computer Science</h4>
-                  <h6>University of Engineering and Management</h6>
-                </li>
-                <li>
-                  <h5>2016 - 2018</h5>
-                  <h4>Higher Secondary</h4>
-                  <h6>St. Xavier's High School</h6>
-                </li>
-                <li>
-                  <h5>2014 - 2016</h5>
-                  <h4>Secondary</h4>
-                  <h6>St. Xavier's High School</h6>
-                </li>
+                {data.education.institutes.map((institute, index) => {
+                  return (
+                    <li key={index}>
+                      <h5>
+                        {data.education.yearOfStart[index]} -{" "}
+                        {data.education.yearsOfPassing[index]}
+                      </h5>
+                      <h4>{data.education.studyPrograms[index]}</h4>
+                      <h6>{institute}</h6>
+                    </li>
+                  );
+                })}
               </ul>
               <h3>Language</h3>
               <ul className="language">
                 {languages.map((language, index) => {
+                  language = language.split("-");
                   return (
                     <li key={index}>
-                      <span className="text">{language}</span>
+                      <span className="text">{language[0].trim()}</span>
                       <span className="percent">
-                        <div style={{ width: "90%" }}></div>
+                        <div style={{ width: `${language[1]}%` }}></div>
                       </span>
                     </li>
                   );
@@ -123,7 +118,7 @@ function Resume({ data, step, setStep }) {
                       <span className="icon">
                         <ion-icon name="heart"></ion-icon>
                       </span>
-                      {interest}
+                      {interest.trim()}
                     </li>
                   );
                 })}
@@ -132,58 +127,36 @@ function Resume({ data, step, setStep }) {
             <div className="rightSide">
               <div className="about">
                 <h3>Profile</h3>
-                <p>{data.aboutSelf}</p>
+                <p>{data.aboutSelf.trim()}</p>
               </div>
               <div className="about">
                 <h3>Experience</h3>
-                <div className="box">
-                  <div className="year-company">
-                    <h5>2014 - 2016</h5>
-                    <h5>Company Name</h5>
+                {data.experience.companies.map((company, index) => (
+                  <div className="box" key={index}>
+                    <div className="year-company">
+                      <h5>
+                        {data.experience.yearOfJoining[index]} -{" "}
+                        {data.experience.yearOfLeaving[index]}
+                      </h5>
+                      <h5>{company}</h5>
+                    </div>
+                    <div className="text">
+                      <h4>{data.experience.positions[index]}</h4>
+                      <p>{data.experience.tasks[index].split(",")}</p>
+                    </div>
                   </div>
-                  <div className="text">
-                    <h4>Senior UX Designer</h4>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Ad dignissimos officia exercitationem
-                    </p>
-                  </div>
-                </div>
-                <div className="box">
-                  <div className="year-company">
-                    <h5>2016 - 2019</h5>
-                    <h5>Company Name</h5>
-                  </div>
-                  <div className="text">
-                    <h4>Senior UX Designer</h4>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Ad dignissimos officia exercitationem
-                    </p>
-                  </div>
-                </div>
-                <div className="box">
-                  <div className="year-company">
-                    <h5>2019 - Present</h5>
-                    <h5>Company Name</h5>
-                  </div>
-                  <div className="text">
-                    <h4>Senior UX Designer</h4>
-                    <p>
-                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                      Ad dignissimos officia exercitationem
-                    </p>
-                  </div>
-                </div>
+                ))}
               </div>
               <div className="about skills">
                 <h3>Professional Skillls</h3>
                 {skills.map((skill, index) => {
+                  skill = skill.trim().split("-");
+                  console.log(skill);
                   return (
                     <div className="box" key={index}>
-                      <h4>{skill}</h4>
+                      <h4>{skill[0]}</h4>
                       <span className="percent">
-                        <div style={{ width: "90%" }}></div>
+                        <div style={{ width: `${skill[1]}%` }}></div>
                       </span>
                     </div>
                   );
@@ -205,7 +178,7 @@ function Resume({ data, step, setStep }) {
         <ReactToPrint
           trigger={() => <button type="button">Print this out!</button>}
           content={() => componentRef.current}
-          documentTitle="Resume - itsme-Subid"
+          documentTitle="Resume made by Subid"
         />
       </div>
     </div>

@@ -3,15 +3,13 @@ import NotFound from "./NotFound";
 import PersonalDetails from "../components/PersonalDetails";
 import Education from "../components/Education";
 import Skills from "../components/Skills";
-import Achievements from "../components/Achievements";
 import Experience from "../components/Experience";
-import PersonalProjects from "../components/PersonalProjects";
 import Interest from "../components/Interest";
 import Resume from "../components/Resume";
 
 function Home() {
   const [data, setData] = useState({});
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(1);
   // useEffect(() => {
   //   if (
   //     localStorage.getItem("data") !== null &&
@@ -27,9 +25,10 @@ function Home() {
   //     console.log("Data saved to local storage");
   //   }
   // }, [data, step]);
-  useEffect(() => {
-    console.log(data);
-  }, [data, step]);
+  
+  // useEffect(() => {
+  //   console.log(data);
+  // }, [data, step]);
   let forms = () => {
     switch (step) {
       case 1:
@@ -56,7 +55,7 @@ function Home() {
         );
       case 4:
         return (
-          <Achievements
+          <Experience
             data={data}
             step={step}
             setData={setData}
@@ -65,24 +64,6 @@ function Home() {
         );
       case 5:
         return (
-          <Experience
-            data={data}
-            step={step}
-            setData={setData}
-            setStep={setStep}
-          />
-        );
-      case 6:
-        return (
-          <PersonalProjects
-            data={data}
-            step={step}
-            setData={setData}
-            setStep={setStep}
-          />
-        );
-      case 7:
-        return (
           <Interest
             data={data}
             step={step}
@@ -90,7 +71,7 @@ function Home() {
             setStep={setStep}
           />
         );
-      case 8:
+      case 6:
         return <Resume data={data} step={step} setStep={setStep} />;
       default:
         return <NotFound />;

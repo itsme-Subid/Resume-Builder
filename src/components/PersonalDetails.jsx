@@ -11,7 +11,7 @@ function PersonalDetails({ data, step, setData, setStep }) {
       JSONform[key] = form.get(key);
     }
     setData({ ...data, ...JSONform });
-    setStep(3);
+    setStep(step + 1);
   };
   return (
     <>
@@ -191,7 +191,7 @@ function PersonalDetails({ data, step, setData, setStep }) {
           <label htmlFor="languages">Preferred Languages</label>
           <input
             type="text"
-            placeholder="Enter your preferred languages..."
+            placeholder="e.g. English-95, Hindi-90, etc (comma separated)"
             name="languages"
             id="languages"
             title="Please enter your languages"

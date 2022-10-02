@@ -10,7 +10,7 @@ function Skills({ data, step, setData, setStep }) {
       JSONform[key] = form.get(key);
     }
     setData({ ...data, ...JSONform });
-    setStep(7);
+    setStep(step + 1);
   };
   return (
     <div className="skills">
@@ -20,20 +20,12 @@ function Skills({ data, step, setData, setStep }) {
           <label htmlFor="skills">Skills you have</label>
           <input
             type="text"
-            placeholder="Enter your Skills, e.g. React.js, Angular, Node.js, MongoDB, etc."
+            placeholder="e.g. React.js-90, Angular-70, Node.js-85, MongoDB-60, etc. (separate each skill with a comma)"
             name="skills"
             id="skills"
             title="Please enter at least 3 characters"
           />
         </div>
-        {/* <div className="form-group">
-          <label htmlFor="skillRate">Rate your skill</label>
-          <select name="skillRate" id="skillRate">
-            <option value="Beginner" >Beginner</option>
-            <option value="Intermediate">Intermediate</option>
-            <option value="Advanced" selected>Advanced</option>
-          </select>
-        </div> */}
         <div className="buttons">
           <button
             type="button"
