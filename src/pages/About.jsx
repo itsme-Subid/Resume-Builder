@@ -15,9 +15,9 @@ function About() {
         ResumeGenius doesn't have any paid version that will gives you access to
         additional features, nor does it have any in-app purchases.
       </p>
-      <div class="features">
+      <div className="features">
         <h3>
-          <div class="svg"></div>
+          <div className="svg"></div>
           Features Overview:
         </h3>
         <li>Modern, intuitive user interface.</li>
